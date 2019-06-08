@@ -7,5 +7,6 @@ class UsersController < ApplicationController
   
   def new
     @page_title = 'signup'
+    @user = User.new
   end
 end
