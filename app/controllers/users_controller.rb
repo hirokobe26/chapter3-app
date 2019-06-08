@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   
   def show
-    @page_title = ""
     @user = User.find(params[:id])
+    @page_title = @user.name
   end
   
   def new
