@@ -23,7 +23,17 @@ class UsersController < ApplicationController
   end
   
   def edit
+    @page_title = 'Edit user'
     @user = User.find(params[:id])
+  end
+  
+  def update
+    @page_title = 'update'
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+    else
+      render 'edit'
+    end
   end
   
   private
