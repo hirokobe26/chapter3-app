@@ -29,8 +29,10 @@ class UsersController < ApplicationController
   
   def update
     @page_title = 'update'
-    @user = User.find(params[:id])
+    @user = User.find(params[:id]) #失敗した時にNilを返すのでここでチェックして、Ifにはいる
     if @user.update_attributes(user_params)
+      flash[:success] = "Profile updated"
+      redirect_to @user
     else
       render 'edit'
     end
