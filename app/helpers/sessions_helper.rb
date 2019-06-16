@@ -5,7 +5,7 @@ module SessionsHelper
     
     def remember(user)
         user.remember #DBに暗号化したremember_tokenをremember_digesに保存してる
-        cookies.permanent.signed[:user_id] = user.id #.signed[:user_id]暗号化してる
+        cookies.permanent.signed[:user_id] = user.id #.signed[:user_id]で暗号化してる
         cookies.permanent[:remember_token] = user.remember_token
     end
     
