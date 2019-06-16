@@ -24,7 +24,7 @@ module SessionsHelper
             @current_user ||= User.find_by(id: user_id)
         elsif (user_id = cookies.signed[:user_id]) #.signed[:user_id]で暗号化を復元してる
                 user = User.find_by(id: user_id)
-            if user && user.authenticated?(cookies[:remember_token])
+            if user && user.authenticated?(:remember, cookies[:remember_token])
                 log_in user
                 @current_user = user
             end
