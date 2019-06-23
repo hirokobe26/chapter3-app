@@ -17,5 +17,6 @@ class PasswordResetsController < ApplicationController
   end
 
   def edit
+    @page_title = 'Reset Password'
   end
 end
