@@ -15,6 +15,7 @@ class PasswordResetsController < ApplicationController
       flash[:info] = "Email sent with password reset instructions"
       redirect_to root_url
     else
+      @page_title = 'Forgot password'
       flash.now[:danger] = "Email address not found"
       render 'new'
     end
@@ -25,6 +26,7 @@ class PasswordResetsController < ApplicationController
   end
   
   def update
+    @page_title = 'Reset password'
     if params[:user][:password].empty?
       @user.errors.add(:password, :blank)
       render 'edit'
